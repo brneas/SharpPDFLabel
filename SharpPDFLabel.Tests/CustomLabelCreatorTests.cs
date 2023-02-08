@@ -11,7 +11,7 @@ namespace SharpPDFLabel.Tests
         public void TestCreateAPdf()
         {
 
-            var labelDefinition = new L5160();
+            var labelDefinition = new L5162();
             var labelCreator = new CustomLabelCreator(labelDefinition) {
                 IncludeLabelBorders = true
             };

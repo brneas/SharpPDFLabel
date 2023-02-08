@@ -1,13 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace SharpPDFLabel.Labels.A4Labels.Avery
+﻿namespace SharpPDFLabel.Labels.A4Labels.Avery
 {
-    class L5162 : LabelDefinition
+    public class L5162 : LabelDefinition
     {
+        // all sizes are in mm
         public L5162()
         {
             _Width = 101.6;

@@ -64,11 +64,11 @@ namespace SharpPDFLabel
         /// Currently adds images and then text in that specific order
         /// </summary>
         /// <param name="img"></param>
-        public void AddImage(Stream img)
+        public void AddImage(byte[] img)
         {
-            var mem = new MemoryStream();
-            CopyStream(img, mem);
-            _images.Add(mem.GetBuffer());
+            //var mem = new MemoryStream();
+            //CopyStream(img, mem);
+            _images.Add(img);
         }
         /// <summary>
         /// Add a chunk of text to the labels

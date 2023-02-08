@@ -8,9 +8,9 @@
     <ProjectGuid>{8FAF2C96-5EAE-469F-A6F0-EDF627E85BC3}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>SharpPDFLabel</RootNamespace>
-    <AssemblyName>SharpPDFLabel</AssemblyName>
-    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <RootNamespace>SharpPDFLabel2</RootNamespace>
+    <AssemblyName>SharpPDFLabel2</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
   </PropertyGroup>
@@ -55,10 +55,10 @@
     <Compile Include="LabelDefinition.cs" />
     <Compile Include="Labels\A4Labels\Avery\L5160.cs" />
     <Compile Include="Labels\A4Labels\Avery\L5162.cs" />
-    <Compile Include="SingleSheetLabelCreator.cs" />
     <Compile Include="Labels\A4Labels\Avery\L7160.cs" />
     <Compile Include="Labels\A4Labels\Avery\L7654.cs" />
     <Compile Include="Labels\A4Labels\Avery\L7656.cs" />
+    <Compile Include="SingleSheetLabelCreator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TextChunk.cs" />
   </ItemGroup>

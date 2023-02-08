@@ -1,7 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharpPDFLabel", "SharpPDFLabel.csproj", "{8FAF2C96-5EAE-469F-A6F0-EDF627E85BC3}"
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.33214.272
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharpPDFLabel2", "SharpPDFLabel2.csproj", "{8FAF2C96-5EAE-469F-A6F0-EDF627E85BC3}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharpPDFLabel.Tests", "SharpPDFLabel.Tests\SharpPDFLabel.Tests.csproj", "{EEDE86F6-5C72-49B2-85EE-4EA6E54096C0}"
 EndProject
@@ -22,5 +24,8 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0B56FA23-2E4C-4AE6-862E-DED9BB755828}
 	EndGlobalSection
 EndGlobal
