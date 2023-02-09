@@ -1,6 +1,8 @@
 ﻿using iTextSharp.text;
 using iTextSharp.text.pdf;
 using System.Collections.Generic;
+using System.Drawing;
+using System.Drawing.Imaging;
 using System.IO;
 
 namespace SharpPDFLabel
@@ -26,14 +28,29 @@ namespace SharpPDFLabel
         }
 
 
-        public PdfPCell GetLabelCell()
+        public PdfPCell GetLabelCell(float topMargin)
         {
             // Create a new Phrase and add the image to it
             var cellContent = new Phrase();
 
-            foreach (var img in _images) {
-                var pdfImg = iTextSharp.text.Image.GetInstance(img);
-                cellContent.Add(new Chunk(pdfImg, 0, 0));
+            topMargin = (topMargin * -1) - (_textChunks.Count * 24.0f);
+            foreach (var img in _images)
+            {
+                Bitmap bmp;
+                using (var ms = new MemoryStream(img))
+                {
+                    bmp = new Bitmap(ms);
+                }
+                Bitmap resized = new Bitmap(bmp, new Size(75, 75));
+                byte[] result = null;
+                using (MemoryStream stream = new MemoryStream())
+                {
+                    resized.Save(stream, ImageFormat.Png);
+                    result = stream.ToArray();
+                }
+
+                var pdfImg = iTextSharp.text.Image.GetInstance(result);
+                cellContent.Add(new Chunk(pdfImg, 0, topMargin));
             }
 
             foreach (var txt in _textChunks) {

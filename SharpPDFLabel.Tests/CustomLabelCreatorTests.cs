@@ -1,5 +1,7 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using SharpPDFLabel.Labels.A4Labels.Avery;
+using System.Drawing;
+using System.Drawing.Imaging;
 using System.IO;
 
 namespace SharpPDFLabel.Tests
@@ -16,12 +18,26 @@ namespace SharpPDFLabel.Tests
                 IncludeLabelBorders = true
             };
 
+            var bitmap = new Bitmap(600, 600);
+            for (var x = 0; x < bitmap.Width; x++)
+            {
+                for (var y = 0; y < bitmap.Height; y++)
+                {
+                    bitmap.SetPixel(x, y, Color.BlueViolet);
+                }
+            }
+            byte[] result = null;
+            using (MemoryStream stream = new MemoryStream())
+            {
+                bitmap.Save(stream, ImageFormat.Png);
+                result = stream.ToArray();
+            }
+
             for (var i = 1; i <= 30; i++) {
-                var label = new Label(Enums.Alignment.LEFT);
+                var label = new Label(Enums.Alignment.CENTER);
+                label.AddImage(result);
                 label.AddText("Person Name " + i.ToString(), "Verdana", 12, embedFont: true);
-                label.AddText("Address one for " + i.ToString(), "Verdana", 12, embedFont: true);
-                label.AddText("Address two for " + i.ToString(), "Verdana", 12, embedFont: true);
-                label.AddText("City, State ZIPCODE " + i.ToString(), "Verdana", 12, embedFont: true);
+                label.AddText("Person Name2 " + i.ToString(), "Verdana", 12, embedFont: true);
                 labelCreator.AddLabel(label);
             }
 
@@ -39,7 +55,7 @@ namespace SharpPDFLabel.Tests
 
             // I comment this out to look at the pdf..
             // how would you test this?
-            File.Delete(@".\pdf5160.pdf");
+            //File.Delete(@".\pdf5160.pdf");
 
         }
     }

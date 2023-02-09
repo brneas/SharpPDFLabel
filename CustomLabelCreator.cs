@@ -116,7 +116,7 @@ namespace SharpPDFLabel
                 colNumber++; // so we start with col 1
 
                 // add the label cell.
-                var cell = FormatCell(label.GetLabelCell());
+                var cell = FormatCell(label.GetLabelCell(_labelDefinition.PageMarginTop));
 
                 //Add to the row
                 tbl.AddCell(cell);
